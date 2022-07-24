@@ -1,9 +1,9 @@
 package io.farias.attendance.repository;
 
-import io.farias.attendance.model.Attendence;
+import io.farias.attendance.model.AttendanceRegister;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AttendenceRepository extends ReactiveMongoRepository<Attendence, String> {
+public interface AttendanceRegisterRepository extends ReactiveMongoRepository<AttendanceRegister, String> {
 }

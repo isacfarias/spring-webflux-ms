@@ -4,9 +4,8 @@ import io.farias.attendance.enums.StatusType;
 import lombok.Data;
 
 @Data
-public class AttendenceUpdateRequestDto {
+public class AttendanceRegisterUpdateRequestDto {
 
-    private String id;
     private StatusType statusType;
 
 }
