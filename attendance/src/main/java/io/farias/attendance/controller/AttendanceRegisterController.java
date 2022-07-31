@@ -21,7 +21,7 @@ public class AttendanceRegisterController {
         return this.service.findAll();
     }
     @GetMapping("/{id}")
-    public Mono<AttendanceRegisterDto> findById(@PathVariable String id) {
+    public Mono<AttendanceRegisterDto> findById(@PathVariable Integer id) {
         return Mono
                 .just(id)
                 .flatMap(this.service::findById);
@@ -31,7 +31,7 @@ public class AttendanceRegisterController {
         return this.service.create(attendanceRegisterRequest);
     }
     @PutMapping("/{id}")
-    public Mono<AttendanceRegisterDto> update(@PathVariable String id, @RequestBody Mono<AttendanceRegisterUpdateRequestDto> attendanceRegisterUpdateRequest) {
+    public Mono<AttendanceRegisterDto> update(@PathVariable Integer id, @RequestBody Mono<AttendanceRegisterUpdateRequestDto> attendanceRegisterUpdateRequest) {
         return this.service.update(id, attendanceRegisterUpdateRequest);
     }
 

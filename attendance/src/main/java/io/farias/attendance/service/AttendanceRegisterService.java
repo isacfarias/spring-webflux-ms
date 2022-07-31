@@ -22,7 +22,7 @@ public class AttendanceRegisterService {
                 .flatMap(this.repository::save)
                 .map(AttendanceRegisterConvert::fromEntityToDto);
     }
-    public Mono<AttendanceRegisterDto> update(String id, Mono<AttendanceRegisterUpdateRequestDto> registerUpdateRequest) {
+    public Mono<AttendanceRegisterDto> update(Integer id, Mono<AttendanceRegisterUpdateRequestDto> registerUpdateRequest) {
         return registerUpdateRequest
                 .flatMap(dto -> this.repository
                         .findById(id)
@@ -31,7 +31,7 @@ public class AttendanceRegisterService {
                 .flatMap(this.repository::save)
                 .map(AttendanceRegisterConvert::fromEntityToDto);
     }
-    public Mono<AttendanceRegisterDto> findById(String id) {
+    public Mono<AttendanceRegisterDto> findById(Integer id) {
         return this.repository
                 .findById(id)
                 .map(AttendanceRegisterConvert::fromEntityToDto);

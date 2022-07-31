@@ -1,5 +1,7 @@
 package io.farias.attendance.dto;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import io.farias.attendance.enums.AttendenceType;
 import io.farias.attendance.enums.StatusType;
 import lombok.Builder;
@@ -12,6 +14,7 @@ import java.util.List;
 @Data
 @With
 @Builder
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AttendanceRegisterDto {
 
     private String id;
