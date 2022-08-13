@@ -1,5 +1,13 @@
 spring:
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/attendance
-    username: admin
+    username: app_agri_lci
     password: admin
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/attendance
+    user: app_agri_lci
+    password: admin
+    locations: classpath:db/migration
+    enabled: true
+    validate-on-migrate: true

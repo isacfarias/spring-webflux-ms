@@ -2,7 +2,7 @@ package io.farias.attendance.controller;
 
 import io.farias.attendance.dto.AttendanceRegisterDto;
 import io.farias.attendance.dto.AttendanceRegisterRequestDto;
-import io.farias.attendance.dto.AttendanceRegisterUpdateRequestDto;
+import io.farias.attendance.service.AttendanceRegisterProductService;
 import io.farias.attendance.service.AttendanceRegisterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -20,19 +20,19 @@ public class AttendanceRegisterController {
     public Flux<AttendanceRegisterDto> findAll() {
         return this.service.findAll();
     }
-    @GetMapping("/{id}")
-    public Mono<AttendanceRegisterDto> findById(@PathVariable Integer id) {
-        return Mono
-                .just(id)
-                .flatMap(this.service::findById);
-    }
+//    @GetMapping("/{id}")
+//    public Mono<AttendanceRegisterDto> findById(@PathVariable Integer id) {
+//        return Mono
+//                .just(id)
+//                .flatMap(this.service::findById);
+//    }
     @PostMapping
-    public Mono<AttendanceRegisterDto> create(@RequestBody Mono<AttendanceRegisterRequestDto> attendanceRegisterRequest) {
-        return this.service.create(attendanceRegisterRequest);
+    public Mono<AttendanceRegisterDto> create(@RequestBody Mono<AttendanceRegisterRequestDto> requestMono) {
+        return requestMono.flatMap(this.service::save);
     }
-    @PutMapping("/{id}")
-    public Mono<AttendanceRegisterDto> update(@PathVariable Integer id, @RequestBody Mono<AttendanceRegisterUpdateRequestDto> attendanceRegisterUpdateRequest) {
-        return this.service.update(id, attendanceRegisterUpdateRequest);
-    }
+//    @PutMapping("/{id}")
+//    public Mono<AttendanceRegisterDto> update(@PathVariable Integer id, @RequestBody Mono<AttendanceRegisterUpdateRequestDto> attendanceRegisterUpdateRequest) {
+//        return this.service.update(id, attendanceRegisterUpdateRequest);
+//    }
 
 }

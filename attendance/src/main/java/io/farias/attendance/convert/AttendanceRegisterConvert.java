@@ -7,16 +7,22 @@ import io.farias.attendance.model.AttendanceRegister;
 
 public class AttendanceRegisterConvert {
 
-    public static AttendanceRegisterDto fromEntityToDto(AttendanceRegister attendanceRegister) {
+    public static AttendanceRegisterDto fromEntityToDto(AttendanceRegister entity) {
         return AttendanceRegisterDto.builder()
+                .id(entity.getId())
+                .attendenceType(entity.getAttendenceType())
+                .description(entity.getDescription())
+                .statusType(entity.getStatusType())
+                .created(entity.getCreated())
+                .closure(entity.getClosure())
                 .build();
     }
 
-    public static AttendanceRegister fromDtoToEntity(AttendanceRegisterRequestDto registerRequestDto) {
-        return AttendanceRegister.builder().build();
+    public static AttendanceRegister fromDtoToEntity(AttendanceRegisterRequestDto dto) {
+        return AttendanceRegister.builder()
+                .attendenceType(dto.getAttendenceType())
+                .description(dto.getDescription())
+                .build();
     }
 
-    public static AttendanceRegister fromDtoToEntity(AttendanceRegisterUpdateRequestDto registerRequestDto) {
-        return AttendanceRegister.builder().build();
-    }
 }

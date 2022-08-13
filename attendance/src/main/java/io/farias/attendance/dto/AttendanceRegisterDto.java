@@ -6,18 +6,19 @@ import io.farias.attendance.enums.AttendenceType;
 import io.farias.attendance.enums.StatusType;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.With;
 
 import java.time.Instant;
 import java.util.List;
 
-@Data
+@Getter
 @With
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AttendanceRegisterDto {
 
-    private String id;
+    private Long id;
     private AttendenceType attendenceType;
     private String description;
     private PersonDto person;
